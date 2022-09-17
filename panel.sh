@@ -23,6 +23,7 @@ PS3='Выберете опцию: '
 options=(
 "Проверить логи Canto"
 "Проверить логи Rebus"
+"Проверить баланс Rebus"
 "Проверить логи NYM"
 "Проверить логи KNSTLD"
 "Проверить логи STRIDE"
@@ -44,6 +45,15 @@ journalctl -u rebusd -f -o cat
 
 break
 ;;
+
+"Проверить баланс Rebus")
+
+rebusd q bank balances rebus1hcntqnnxshswsyf77j2n8trwzajx3w4c6wlayd
+
+break
+;;
+
+
 
 "Проверить логи NYM")
 
