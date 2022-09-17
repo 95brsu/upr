@@ -1,0 +1,77 @@
+#!/bin/bash
+
+while true
+do
+
+# Logo
+
+echo "=================================================="
+echo -e "\033[0;37m\"
+echo " ::::    :::  ::     ::  :::::::::   ::::::::   ";
+echo " :+:+:   :+: :+:    :+:     :+:     :+:    :+:  ";
+echo " :+:+:+  +:+ +:+    +:+     +:+     +:+         ";
+echo " +#+ +:+ +#+ +#+    +:+     +:+     +#++:++#++  ";
+echo " +#+  +#+#+# +#+    +#+     +#+             +#+ ";
+echo " #+#   #+#+# #+#    #+#     #+#     #+#     #+# ";
+echo " ###    ####    ####        ##        ######    ";
+echo -e "\e[0m"
+echo "=================================================="
+
+# Menu
+
+PS3='Выберете опцию: '
+options=(
+"Проверить логи Canto"
+"Проверить логи Rebus"
+"Проверить логи NYM"
+"Проверить логи KNSTLD"
+"Проверить логи STRIDE"
+"Выход")
+select opt in "${options[@]}"
+do
+case $opt in
+
+"Проверить логи Canto")
+
+journalctl -u cantod -f -o cat
+
+break
+;;
+
+"Проверить логи Rebus")
+
+journalctl -u rebusd -f -o cat
+
+break
+;;
+
+"Проверить логи NYM")
+
+journalctl -u nym-mixnode -f -o cat
+
+break
+;;
+
+"Проверить логи KNSTLD")
+
+journalctl -u knstld -f -o cat
+
+break
+;;
+
+"Проверить логи STRIDE")
+
+journalctl -u strided -f -o cat
+
+break
+;;
+
+
+
+"Выход")
+exit
+;;
+*) echo "Неправильная опция $REPLY";;
+esac
+done
+done
