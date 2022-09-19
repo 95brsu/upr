@@ -16,6 +16,7 @@ options=(
 "CANTO баланс"
 "CANTO логи"
 "CANTO статус"
+"CANTO выход из тюрьмы"
 "REBUS логи"
 "REBUS статус"
 "REBUS баланс"
@@ -47,6 +48,13 @@ break
 "CANTO статус")
 
 curl localhost:26657/status
+
+break
+;;
+
+"CANTO выход из тюрьмы")
+
+cantod tx slashing unjail --from wallet --fees 20000000000000000acanto -y
 
 break
 ;;
