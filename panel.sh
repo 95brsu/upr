@@ -29,6 +29,7 @@ options=(
 "STRIDE статус"
 "APTOS логи"
 "APTOS метрики"
+"APTOS пропозлы"
 "APTOS ПЕРЕЗАПУСК(Аккуратно!!!)"
 "Выход")
 select opt in "${options[@]}"
@@ -152,6 +153,13 @@ break
 "APTOS метрики")
 
 cd .aptos && curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version"
+
+break
+;;
+
+"APTOS пропозлы")
+
+cd .aptos && curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_consensus_proposals_count"
 
 break
 ;;
