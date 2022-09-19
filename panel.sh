@@ -13,52 +13,50 @@ echo "=================================================="
 
 PS3='Выберете опцию: '
 options=(
-"Проверить логи Canto"
-"Проверить статус Canto"
-"Проверить логи Rebus"
-"Проверить статус Rebus"
-"Проверить баланс Rebus"
-"Проверить логи NYM"
-"Проверить логи KNSTLD"
-"Проверить статус KNSTLD"
-"Проверить логи STRIDE"
-"Проверить статус STRIDE"
+"CANTO логи"
+"CANTO статус"
+"REBUS логи"
+"REBUS статус"
+"REBUS баланс"
+"NYM логи"
+"KNSTLD логи"
+"KNSTLD статус"
+"STRIDE логи"
+"STRIDE статус"
 "Выход")
 select opt in "${options[@]}"
 do
 case $opt in
 
-"Проверить логи Canto")
+"CANTO логи")
 
 journalctl -u cantod -f -o cat
 
 break
 ;;
 
-"Проверить статус Canto")
+"CANTO статус")
 
 curl localhost:26657/status
 
 break
 ;;
 
-
-
-"Проверить логи Rebus")
+"REBUS логи")
 
 journalctl -u rebusd -f -o cat
 
 break
 ;;
 
-"Проверить статус Rebus")
+"REBUS статус")
 
 curl localhost:21657/status
 
 break
 ;;
 
-"Проверить баланс Rebus")
+"REBUS баланс")
 
 rebusd q bank balances rebus1hcntqnnxshswsyf77j2n8trwzajx3w4c6wlayd
 
@@ -66,21 +64,21 @@ break
 ;;
 
 
-"Проверить логи NYM")
+"NYM логи")
 
 journalctl -u nym-mixnode -f -o cat
 
 break
 ;;
 
-"Проверить логи KNSTLD")
+"KNSTLD логи")
 
 journalctl -u knstld -f -o cat
 
 break
 ;;
 
-"Проверить статус KNSTLD")
+"KNSTLD статус")
 
 curl localhost:20657/status
 
@@ -88,14 +86,14 @@ break
 ;;
 
 
-"Проверить логи STRIDE")
+"STRIDE логи")
 
 journalctl -u strided -f -o cat
 
 break
 ;;
 
-"Проверить статус STRIDE")
+"STRIDE статус")
 
 curl localhost:16657/status
 
