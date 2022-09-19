@@ -14,6 +14,7 @@ echo "=================================================="
 PS3='Выберете опцию: '
 options=(
 "CANTO баланс"
+"CANTO собрать все реварды"
 "CANTO логи"
 "CANTO статус"
 "CANTO выход из тюрьмы"
@@ -35,6 +36,13 @@ case $opt in
 
 "CANTO баланс")
 cantod q bank balances canto14hr6ew8jcdhslnxnqj2yz8u8t7lu5tznp3hpfg
+break
+;;
+
+"CANTO собрать все реварды") 
+
+cantod tx distribution withdraw-all-rewards --from <name_wallet> --fees 500acanto -y
+
 break
 ;;
 
