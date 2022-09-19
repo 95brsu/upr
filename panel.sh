@@ -41,7 +41,7 @@ break
 
 "CANTO собрать все реварды") 
 
-cantod tx distribution withdraw-all-rewards --from wallet --fees 500acanto -y
+cantod tx distribution withdraw-all-rewards --from wallet --fees 20000000000000000acanto -y
 
 break
 ;;
