@@ -6,7 +6,7 @@ do
 # Logo
 
 echo "=================================================="
-echo "ПАНЕЛЬ УПРАВЛЕНИЯ    65.109.29.150        2       "
+echo "ПАНЕЛЬ УПРАВЛЕНИЯ                    RANGE        "
 echo "=================================================="
 
 # Menu
@@ -143,7 +143,7 @@ break
 
 "APTOS логи")
 
-cd .aptos && curl 127.0.0.1:9101/metrics 2> /dev/null | grep "aptos_state_sync_version"
+cd .aptos && docker logs -f --tail 100 aptos-validator-1
 
 break
 ;;
