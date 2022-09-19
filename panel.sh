@@ -6,7 +6,7 @@ do
 # Logo
 
 echo "=================================================="
-echo "ПАНЕЛЬ УПРАВЛЕНИЯ    65.109.29.150        1       "
+echo "ПАНЕЛЬ УПРАВЛЕНИЯ    65.109.29.150        2       "
 echo "=================================================="
 
 # Menu
@@ -15,6 +15,7 @@ PS3='Выберете опцию: '
 options=(
 "CANTO баланс"
 "CANTO собрать все реварды"
+"CANTO делегировать в себя"
 "CANTO логи"
 "CANTO статус"
 "CANTO выход из тюрьмы"
@@ -39,12 +40,27 @@ cantod q bank balances canto14hr6ew8jcdhslnxnqj2yz8u8t7lu5tznp3hpfg
 break
 ;;
 
+
 "CANTO собрать все реварды") 
 
 cantod tx distribution withdraw-all-rewards --from wallet --fees 20000000000000000acanto -y
 
 break
 ;;
+
+"CANTO делегировать в себя") 
+
+echo "============================================================"
+echo "Введите количество:"
+echo "============================================================"
+read CANTO_AMOUNT
+CANTO_AMOUNT=$CANTO_AMOUNT
+cantod tx staking delegate cantovaloper14hr6ew8jcdhslnxnqj2yz8u8t7lu5tznr0s9cd ${CANTO_AMOUNT}acanto --from wallet --fees 20000000000000000acanto -y
+
+break
+;;
+
+
 
 "CANTO логи")
 
