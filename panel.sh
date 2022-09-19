@@ -13,6 +13,7 @@ echo "=================================================="
 
 PS3='Выберете опцию: '
 options=(
+"CANTO баланс"
 "CANTO логи"
 "CANTO статус"
 "REBUS логи"
@@ -27,6 +28,11 @@ options=(
 select opt in "${options[@]}"
 do
 case $opt in
+
+"CANTO баланс")
+cantod q bank balances canto14hr6ew8jcdhslnxnqj2yz8u8t7lu5tznp3hpfg
+break
+;;
 
 "CANTO логи")
 
