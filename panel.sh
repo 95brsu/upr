@@ -24,7 +24,6 @@ options=(
 "KNSTLD статус"
 "STRIDE логи"
 "STRIDE статус"
-"APTOS логи"
 "APTOS метрики"
 "APTOS ПЕРЕЗАПУСК(Аккуратно!!!)"
 "Выход")
@@ -105,13 +104,6 @@ break
 "STRIDE статус")
 
 curl localhost:16657/status
-
-break
-;;
-
-"APTOS логи"
-
-cd .aptos && docker logs -f --tail 100 aptos-validator-1
 
 break
 ;;
