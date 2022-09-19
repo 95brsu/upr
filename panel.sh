@@ -14,11 +14,14 @@ echo "=================================================="
 PS3='Выберете опцию: '
 options=(
 "Проверить логи Canto"
+"Проверить статус Canto"
 "Проверить логи Rebus"
+"Проверить статус Rebus"
 "Проверить баланс Rebus"
 "Проверить логи NYM"
 "Проверить логи KNSTLD"
 "Проверить логи STRIDE"
+"Проверить статус STRIDE"
 "Выход")
 select opt in "${options[@]}"
 do
@@ -31,9 +34,25 @@ journalctl -u cantod -f -o cat
 break
 ;;
 
+"Проверить статус Canto")
+
+curl localhost:26657/status
+
+break
+;;
+
+
+
 "Проверить логи Rebus")
 
 journalctl -u rebusd -f -o cat
+
+break
+;;
+
+"Проверить статус Rebus")
+
+curl localhost:21657/status
 
 break
 ;;
@@ -44,7 +63,6 @@ rebusd q bank balances rebus1hcntqnnxshswsyf77j2n8trwzajx3w4c6wlayd
 
 break
 ;;
-
 
 
 "Проверить логи NYM")
@@ -61,6 +79,14 @@ journalctl -u knstld -f -o cat
 break
 ;;
 
+"Проверить статус KNSTLD")
+
+curl localhost:20657/status
+
+break
+;;
+
+
 "Проверить логи STRIDE")
 
 journalctl -u strided -f -o cat
@@ -68,6 +94,12 @@ journalctl -u strided -f -o cat
 break
 ;;
 
+"Проверить статус STRIDE")
+
+curl localhost:16657/status
+
+break
+;;
 
 
 "Выход")
