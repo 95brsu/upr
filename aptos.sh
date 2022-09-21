@@ -23,14 +23,14 @@ select opt in "${options[@]}"
 do
 case $opt in
 
-"APTOS validator логи"
+"APTOS validator логи")
 
 cd .aptos && docker logs -f --tail 100 aptos-validator-1
 
 break
 ;;
 
-"APTOS full-node логи"
+"APTOS full-node логи")
 
 cd .aptos && docker logs -f --tail 100 aptos-fullnode-1
 
